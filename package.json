@@ -1,0 +1,27 @@
+{
+  "name": "matching-bytes",
+  "version": "1.0.0",
+  "description": "a library that takes two files as an input and finds any matching patterns of bytes between them",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshterrill/matching-bytes.git"
+  },
+  "keywords": [
+    "bytes",
+    "matching",
+    "bytes",
+    "byte",
+    "pattern",
+    "patterns"
+  ],
+  "author": "Josh Terrill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshterrill/matching-bytes/issues"
+  },
+  "homepage": "https://github.com/joshterrill/matching-bytes#readme"
+}
