@@ -26,6 +26,7 @@ const data = await matchingBytes.findBytes(
     'test/sample-images/midjourney2.webp',
     /* Default options: */
     {
+        showProgress: false,
         minOccurance: 4,
         bytesToRead: 1200, // leave null if you want to read the full file
         ignoreAllZeroes: true, // ignores patterns that are all 0's
