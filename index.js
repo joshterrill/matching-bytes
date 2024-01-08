@@ -64,7 +64,7 @@ async function findCommonSequences(array1, array2, minSequenceLength, showProgre
 }
 
 
-async function compareBinaries(filePath1, filePath2, opts = {}) {
+async function findBytes(filePath1, filePath2, opts = {}) {
     return new Promise(async (resolve, reject) => {
         try {
             if (!filePath1 && filePath2) {
@@ -80,7 +80,7 @@ async function compareBinaries(filePath1, filePath2, opts = {}) {
                 if (opts.ignoreAllZeroes === undefined) opts.ignoreAllZeroes = true;
                 if (opts.ignoreAllOnes === undefined) opts.ignoreAllOnes = true;
             }
-            console.debug(`Comparing ${filePath1} and ${filePath2}...`);
+            console.debug(`Looking for matching bytes (${opts.bytesToRead}) in ${filePath1} and ${filePath2}...`);
             const buffer1 = await readFileToBuffer(filePath1, opts.bytesToRead);
             const buffer2 = await readFileToBuffer(filePath2, opts.bytesToRead);
 
@@ -117,5 +117,5 @@ async function compareBinaries(filePath1, filePath2, opts = {}) {
 }
 
 module.exports = {
-    compareBinaries
+    findBytes
 };

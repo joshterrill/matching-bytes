@@ -1,5 +1,5 @@
 ﻿# Matching Bytes
-a library that takes two files as an input and finds any matching patterns of bytes between them 
+a library that takes two files as an input and finds any matching patterns of bytes between them (Can be very very slow)
 
 # Usage
 
@@ -15,8 +15,8 @@ Use
 const matchingBytes = require('matching-bytes');
 
 const data = await matchingBytes.findBytes(
-    './path/to/file1.webp',
-    './path/to/file2.webp',
+    './test/sample-images/midjourney1.webp',
+    'test/sample-images/midjourney2.webp',
     /* Default options: */
     {
         minOccurance: 4,
@@ -26,10 +26,10 @@ const data = await matchingBytes.findBytes(
         ignoreAllJustZeroesAndOnes: true, // ignores patterns that are only 1's and 0's
     }
 );
-
+// Looking for matching bytes (1200) in ./test/sample-images/midjourney1.webp and ./test/sample-images/midjourney1.webp...
+// ======================================== 100% 0.0s
 console.log(data);
 /*
-Looking for matching bytes in ./file1.webp and ./file2.webp...
 ======================================== 100% 0.0s
 [
   { sequence: [ '52', '49', '46', '46' ], index1: 0, index2: 0 },
@@ -39,7 +39,7 @@ Looking for matching bytes in ./file1.webp and ./file2.webp...
 */
 ```
 
-In the example above, we see the first two sequence occurrances correspond to the WEBP magic number, but the third one 
+In the example above, we see the first two sequence occurrances correspond to the WEBP magic number, but the third one seems to occur in all upscaled images from midjourney.
 
 # License
 MIT
