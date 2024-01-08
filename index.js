@@ -1,6 +1,5 @@
 const fs = require('fs');
 const ProgressBar = require('progress');
-const args = process.argv.slice(2);
 
 async function readFileToBuffer(filePath, bytesToRead) {
     return new Promise((resolve, reject) => {
@@ -67,13 +66,9 @@ async function findCommonSequences(array1, array2, minSequenceLength, showProgre
 async function findBytes(filePath1, filePath2, opts = {}) {
     return new Promise(async (resolve, reject) => {
         try {
-            if (!filePath1 && filePath2) {
-                filePath1 = args[0];
-                filePath2 = args[1];
-            }
-            const showProgress = args.includes('--showProgress');
             if (opts.bytesToRead === undefined) opts.bytesToRead = 1200;
             if (opts.minOccurance === undefined) opts.minOccurance = 3;
+            if (opts.showProgress !== undefined) opts.showProgress = true;
             if (opts.ignoreAllJustZeroesAndOnes === undefined) {
                 opts.ignoreAllJustZeroesAndOnes = true;
             } else {
@@ -87,7 +82,7 @@ async function findBytes(filePath1, filePath2, opts = {}) {
             const array1 = Array.from(buffer1);
             const array2 = Array.from(buffer2);
 
-            let commonSequences = await findCommonSequences(array1, array2, opts.minOccurance, showProgress);
+            let commonSequences = await findCommonSequences(array1, array2, opts.minOccurance, opts.showProgress);
             for (let i = 0; i < commonSequences.length; i++) {
                 const seq = commonSequences[i];
                 const lengthOfSequence = seq.sequence.length;

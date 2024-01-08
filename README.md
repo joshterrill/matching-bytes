@@ -1,7 +1,14 @@
 ﻿# Matching Bytes
 a library that takes two files as an input and finds any matching patterns of bytes between them (Can be very very slow)
 
-# Usage
+# Global usage
+
+```bash
+npm i -g matching-bytes
+matching-bytes ./test/sample-images/midjourney1.webp ./test/sample-images/midjourney2.webp --bytesToRead 9999 --minOccurance 4 --showProgress --ignoreAllZeroes true --ignoreAllOnes true --ignoreAllJustZeroesAndOnes true
+```
+
+# API usage
 
 Install
 
@@ -9,7 +16,7 @@ Install
 npm i matching-bytes --save
 ```
 
-Use
+Usage
 
 ```javascript
 const matchingBytes = require('matching-bytes');

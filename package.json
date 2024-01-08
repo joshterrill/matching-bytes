@@ -1,10 +1,13 @@
 {
   "name": "matching-bytes",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a library that takes two files as an input and finds any matching patterns of bytes between them",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
+  },
+  "bin": {
+    "matching-bytes": "./bin/index.js"
   },
   "repository": {
     "type": "git",
